@@ -114,6 +114,28 @@ class LinkedList {
     return temp;
   }
 
+  get(index) {
+    if (index >= this.length || index < 0) {
+      return null;
+    } else if (index === 0) {
+      return this.head.value;
+    }
+    let currentNode = this.head;
+    for (let i = 1; i <= index; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode.value;
+
+    // if (index >= this.length || index < 0) {
+    //   return null;
+    // }
+    // let currentNode = this.head;
+    // for (let i = 0; i < index; i++) {
+    //   currentNode = currentNode.next;
+    // }
+    // return currentNode.value;
+  }
+
   printAll() {
     if (this.head === null) {
       console.log("Nothing in this linked list.")
@@ -129,11 +151,12 @@ class LinkedList {
 
 let myLinkedList = new LinkedList();
 myLinkedList.push("Mike");
-// myLinkedList.push("Harry");
-// myLinkedList.push("James");
-// myLinkedList.push("Kevin");
+myLinkedList.push("Harry");
+myLinkedList.push("James");
+myLinkedList.push("Kevin");
 // myLinkedList.pop();
-myLinkedList.shift();
+// myLinkedList.shift();
 // myLinkedList.unshift("Nora");
 myLinkedList.printAll();
 console.log(myLinkedList.length);
+console.log(myLinkedList.get(1));
