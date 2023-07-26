@@ -42,4 +42,8 @@ bst.treeInsert(new Node(-7));
 bst.treeInsert(new Node(3));
 
 console.log(bst);
-// 無法看出全貌，所以要再用 pre、in、postOrder
+// 無法看出全貌，所以要再用 BFTT,pre、in、postOrder
+// BFTT：15,6,5,13,1,-7,3
+// Pre：15,6,5,1,-7,3,13
+// In：-7,1,3,5,6,13,15
+// Post：-7,3,1,5,13,6,15
