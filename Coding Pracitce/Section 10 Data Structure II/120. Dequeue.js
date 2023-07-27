@@ -76,16 +76,8 @@ pq.enqueue("todo 3", 2);
 pq.enqueue("todo 4", -39);
 pq.enqueue("todo 5", 4);
 pq.enqueue("todo 6", 67);
-let deQ = pq.dequeue();
-console.log(deQ);
-deQ = pq.dequeue();
-console.log(deQ);
-deQ = pq.dequeue();
-console.log(deQ);
-deQ = pq.dequeue();
-console.log(deQ);
-deQ = pq.dequeue();
-console.log(deQ);
-deQ = pq.dequeue();
-console.log(deQ);
+
+while (pq.values.length > 0) {
+  console.log(pq.dequeue().value)
+}
 console.log(pq);
