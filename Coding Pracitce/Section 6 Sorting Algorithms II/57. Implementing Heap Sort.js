@@ -3,7 +3,7 @@ let arr = [15, 3, 17, 18, 20, 2, 1, 666, -7];
 
 function buildMaxHeap() {
   heapSize = arr.length - 1;
-  for (let i = arr.length / 2; i >= 0; i--) {
+  for (let i = Math.floor(heapSize / 2) - 1; i >= 0; i--) {
     maxHeapify(i);
   }
 }

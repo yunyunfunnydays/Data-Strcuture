@@ -33,6 +33,27 @@ class BinarySearchTree {
     }
   }
 
+  searchRecursively(x, key) {
+    if (x === null || x.key === key) {
+      return x;
+    } else if (key < x.key) {
+      return this.searchRecursively(x.left, key);
+    } else {
+      return this.searchRecursively(x.right, key);
+    }
+  }
+
+  searchIteratively(x, key) {
+    while (x !== null && x.key !== key) {
+      if (key < x.key) {
+        x = x.left;
+      } else {
+        x = x.right;
+      }
+    }
+    return x;
+  }
+
   preOrder(n) {
     if (n !== null) {
       this.path = this.path + " " + n.key;
@@ -101,3 +122,9 @@ console.log(bst.path);
 bst.path = [];
 bst.postOrder(bst.root);
 console.log(bst.path);
+
+let result = bst.searchRecursively(bst.root, 15);
+console.log(result);
+
+let resultIterate = bst.searchIteratively(bst.root, 15);
+console.log(resultIterate);
