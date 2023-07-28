@@ -13,11 +13,11 @@ class Node {
 }
 
 class Edge {
-  constructor(weight, node1, node2) {
+  constructor(node1, node2, weight) {
     // 每個 edge 都有兩個 Node 和 edge 本身的 value
-    this.weight = weight;
     this.node1 = node1;
     this.node2 = node2;
+    this.weight = weight;
   }
 }
 
@@ -35,7 +35,7 @@ function getBestEdge(bucket) {
     });
 
     if (bestEdge.node1.visited && bestEdge.node2.visited) {
-      bucket.splice(index, i);
+      bucket.splice(index, 1);
       bestEdge = null;
     }
   }
