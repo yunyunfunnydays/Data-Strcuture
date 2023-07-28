@@ -60,7 +60,9 @@ function mstPrim(startNode, graphNode) {
     graphNode.forEach(node => {
       if (node.visited === true) {
         node.edges.forEach(edge => {
-          bucket.push(edge);
+          if (!mstEdges.includes(edge)) {
+            bucket.push(edge);
+          }
         })
       }
     });
