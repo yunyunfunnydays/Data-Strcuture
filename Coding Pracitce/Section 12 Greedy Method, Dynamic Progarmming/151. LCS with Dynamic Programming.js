@@ -3,7 +3,6 @@ let table2;
 let x = "ATTTGGCTA";
 let y = "TTAGCCAT";
 
-
 function LCS(str1, str2) {
   table1 = [];
   table2 = [];
@@ -45,22 +44,42 @@ function LCS(str1, str2) {
   }
 }
 
+// function printLCS(i, j) {
+//   let result = '';
+//   while (table1[i][j] > 0) {
+//     if (table2[i][j] == "↖") {
+//       result = x[i - 1] + result;
+//       i--;
+//       j--;
+//     } else if (table2[i][j] == "↑") {
+//       i--;
+//     } else {
+//       j--;
+//     }
+//   }
+//   return result;
+// }
+
+
+// recursion 寫法
+let result = "";
+
+function printLCS(m, n) {
+  if (m === 0 || n === 0) {
+    return;
+  } else if (table2[m][n] === "↖") {
+    printLCS(m - 1, n - 1);
+    return result = result + x[m - 1];
+  } else if (table2[m][n] === "↑") {
+    printLCS(m - 1, n);
+    return;
+  } else {
+    printLCS(m, n - 1);
+    return;
+  }
+}
+
 LCS(x, y);
 console.log(table1, table2);
-
-function printLCS(i, j) {
-  let result = '';
-  while (table1[i][j] > 0) {
-    if (table2[i][j] == "↖") {
-      result = x[i - 1] + result;
-      i--;
-      j--;
-    } else if (table2[i][j] == "↑") {
-      i--;
-    } else {
-      j--;
-    }
-  }
-  return result;
-}
-console.log(printLCS(x.length, y.length));
+printLCS(x.length, y.length)
+console.log(result);
